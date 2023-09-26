@@ -3,7 +3,8 @@
 <meta charset="UTF-8">
 <head>
     <link href="stylesheet/index.css" rel="stylesheet">
-    <title>Title</title>
+    <link rel="icon" href="duck_icon_135676.png">
+    <title>Веб ЛР1</title>
 </head>
 <body>
     <div class="content">
@@ -77,27 +78,23 @@
         </div>
         <div class="table">
             <table class="table" id="res">
-                <tr class="table_row">
-                    <th class="val" scope="col">X</th>
-                    <th class="val" scope="col">Y</th>
-                    <th class="val" scope="col">R</th>
-                    <th class="val" scope="col">Время</th>
-                    <th class="val" scope="col">Время исполнения</th>
-                    <th class="val" scope="col">Результат</th>
-                </tr>
-                <?php foreach ($_SESSION["client"] as $value){ ?>
-                <tr class="table-row">
-                    <td><?php echo $value[0] ?></td>
-                    <td><?php echo $value[1] ?></td>
-                    <td><?php echo $value[2] ?></td>
-                    <td><?php echo $value[3] ?></td>
-                    <td><?php echo $value[4] ?> ms</td>
-                    <?php echo $value[5] ? "<td style='color: green'>Попадение</td>" : "<td style='color: red'>Промах</td>"; ?>
-                </tr>
-                <?php } ?>
+                <thead>
+                    <tr>
+                        <th class="val" scope="col">X</th>
+                        <th class="val" scope="col">Y</th>
+                        <th class="val" scope="col">R</th>
+                        <th class="val" scope="col">Время</th>
+                        <th class="val" scope="col">Время исполнения</th>
+                        <th class="val" scope="col">Результат</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+
+                </tbody>
             </table>
         </div>
     </div>
 <script type="text/javascript" src="valid.js"></script>
+<script type="text/javascript" src="jquery-3.7.1.js"></script>
 </body>
 </html>
