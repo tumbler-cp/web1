@@ -1,7 +1,10 @@
-* {
-    font-family: sans-serif "Times New Roman";
+header {
+    font-style: italic;
+    font-family: serif;
+    font-size: 18pt;
+    color: #09b50c;
+    text-align: center;
 }
-
 body {
     background: #ddff84;
 }
@@ -103,17 +106,4 @@ tr > .val {
 }
 .result_false {
     background: orangered;
-}
-
-header {
-    position: absolute;
-    background: black;
-    color: white;
-    width: 100%;
-    padding: 20px;
-}
-
-img#gh_src {
-    width: 50px;
-    height: auto;
 }

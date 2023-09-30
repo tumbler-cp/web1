@@ -19,6 +19,17 @@ function check($x, $y, $r)
 date_default_timezone_set('Europe/Moscow');
 
 $finish = microtime() - $start;
-$res = ['x' => $x,'y' => $y,'r' => $r,'curr_time' => date("H:i:s"),'exec_time'=> $finish,'resp'=> check($x, $y, $r)];
 
-echo json_encode($res);
+$result = array($x, $y, $r, date("H:i:s"), number_format($finish*100000, 3)."ms", check($x, $y, $r) ? 'HIT' : 'MISS');
+
+if (!isset($_SESSION)){
+    session_start();
+}
+
+if (!isset($_SESSION['client'])){
+    $_SESSION['client'] = array();
+}
+
+$_SESSION['client'][] = $result;
+
+echo include "table.php";
