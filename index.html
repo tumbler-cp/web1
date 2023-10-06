@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <link href="stylesheet/index.css" rel="stylesheet">
+    <link rel="icon" href="img/duck_icon_135676.png">
+    <title>Веб ЛР1</title>
+</head>
+<body>
+    <header>
+        Ходжаев Абдужалол Абдужаборович | Группа P3208 | Вариант 1822
+    </header>
+    <div class="content">
+        <div class="upper">
+            <div class="line-block">
+                <svg class="sqr" width="250" height="250">
+                    <!-- Фигуры -->
+                    <polygon points="75,25 125,25 125,125 75,125" fill="cyan" stroke="cyan" opacity="0.5"></polygon>
+                    <polygon points="25,125 125,125 125,225" fill="cyan" stroke="cyan" opacity="0.5"></polygon>
+
+                    <path d="M125,125 L125,75 A50,50 0 0,1 175,125 Z" fill="cyan" stroke="cyan" opacity="0.5"></path>
+
+                    <!-- Линии и отметки -->
+                    <line stroke="black" x1="0" x2="250" y1="125" y2="125"></line>
+                    <line stroke="black" x1="125" x2="125" y1="0" y2="250"></line>
+
+                    <line stroke="black" x1="25" x2="25" y1="123" y2="127"></line>
+                    <line stroke="black" x1="75" x2="75" y1="123" y2="127"></line>
+                    <line stroke="black" x1="175" x2="175" y1="123" y2="127"></line>
+                    <line stroke="black" x1="225" x2="225" y1="123" y2="127"></line>
+
+                    <line stroke="black" x1="123" x2="127" y1="25" y2="25"></line>
+                    <line stroke="black" x1="123" x2="127" y1="75" y2="75"></line>
+                    <line stroke="black" x1="123" x2="127" y1="175" y2="175"></line>
+                    <line stroke="black" x1="123" x2="127" y1="225" y2="225"></line>
+
+                    <!-- Стрелки -->
+                    <polygon points="125,0 127,12.5 123,12.5" fill="black" stroke="black"></polygon>
+                    <polygon points="250,125 237.5,127 237.5,123" fill="black" stroke="black"></polygon>
+
+                    <!-- Значение отметок -->
+                    <text x="20" y="120" fill="black">-R</text>
+                    <text x="67.5" y="120" fill="black">-R/2</text>
+                    <text x="170" y="120" fill="black">R/2</text>
+                    <text x="222.5" y="120" fill="black">R</text>
+
+                    <text x="130" y="27.5" fill="black">R</text>
+                    <text x="130" y="77.5" fill="black">R/2</text>
+                    <text x="130" y="177.5" fill="black">-R/2</text>
+                    <text x="130" y="237.5" fill="black">-R</text>
+                </svg>
+            </div>
+            <div class="line-block">
+                <form id="coordinates" method="post">
+                    <div>
+                        <label>X: <input id="x-text" type="number" placeholder="[-5, 3]" name="x"></label>
+                    </div>
+                    <div>
+                        <label>Y:
+                        <select id="y-select" onchange="set_y()">
+                            <option value="-4">-4</option>
+                            <option value="-3">-3</option>
+                            <option value="-2">-2</option>
+                            <option value="-1">-1</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="r-range">R: 1
+                            <input id="r-range" name="r" type="range" min="1" max="3" step="0.5" value="1.5" onchange="set_r()">3
+                        </label>
+                    </div>
+                    <button id="val-submit" type="button">Проверить</button>
+                </form>
+            </div>
+        </div>
+        <div id="table-holder">
+
+        </div>
+    </div>
+<script type="text/javascript" src="client/valid.js"></script>
+</body>
+</html>
