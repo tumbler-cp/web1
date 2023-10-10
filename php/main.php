@@ -1,7 +1,7 @@
 <?php
 $start = microtime();
 
-if ($_SERVER["REQUEST_METHOD" !== "POST"]){
+if ($_SERVER["REQUEST_METHOD"] !== "POST"){
     http_response_code(405);
     return;
 }
@@ -26,11 +26,6 @@ date_default_timezone_set('Europe/Moscow');
 
 $finish = microtime() - $start;
 
-$result = array($x, $y, $r,
-    date("H:i:s"),
-    number_format($finish * 100000, 3) . "ms",
-    check($x, $y, $r) ? 'HIT' : 'MISS');
-
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -39,8 +34,9 @@ if (!isset($_SESSION['client'])) {
     $_SESSION['client'] = array();
 }
 
-$_SESSION['client'][] = $result;
+$_SESSION['client'][] = array($x, $y, $r,
+    date("H:i:s"),
+    number_format($finish * 100000, 3) . "ms",
+    check($x, $y, $r) ? 'HIT' : 'MISS');
 
-$table = include "table.php";
-
-echo $table;
+include "table.php";

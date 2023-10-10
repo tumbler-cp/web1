@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "prettier-format" : "prettier --config .prettierrc client/*.ts --write"
+  }
+}

@@ -1,134 +1,151 @@
 header {
-    font-weight: bolder;
-    font-family: serif;
-    font-size: 18pt;
-    color: #04364A;
-    text-align: center;
+  font-weight: bolder;
+  font-family: serif;
+  font-size: 18pt;
+  color: #04364A;
+  text-align: center;
 }
 
 body {
-    background: #DAFFFB;
+  background: #DAFFFB;
 }
 
 .content {
-    font-family: 'Gill Sans', sans-serif;
-    margin: 5% auto;
-    max-width: 790px;
-    min-width: 460px;
-    padding: 20px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+  margin: 5% auto;
+  max-width: 790px;
+  min-width: 460px;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+}
+
+footer,
+.content {
+  font-family: "Gill Sans", sans-serif;
 }
 
 .sqr {
-    background: white;
-    width: 250px;
-    height: 250px;
-    border-radius: 15px;
-    border-width: 2px;
-    border-style: dashed;
-    padding: 25px;
-    margin-right: 20px;
-    box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+  background: white;
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  border-width: 2px;
+  border-style: dashed;
+  padding: 25px;
+  margin-right: 20px;
+  box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
 }
 
 .line-block {
-    display: inline-flex;
-    vertical-align: top;
+  display: inline-flex;
+  vertical-align: top;
 }
 
 input#x-text {
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    border-style: none;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border-style: none;
 }
 
 input#r-range::-webkit-slider-runnable-track {
-    width: 350px;
-    color: red;
+  width: 350px;
+  color: red;
 }
 
 button {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    border: none;
-    background-color: #176B87;
-    color: white;
-    font-weight: bolder;
-    font-size: 16pt;
-    box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
-    transition-duration: 0.2s;
-    width: auto;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: #176B87;
+  color: white;
+  font-weight: bolder;
+  font-size: 16pt;
+  box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+  transition-duration: .2s;
+  width: auto;
 }
 
 button:active {
-    box-shadow: 0 0 0 rgb(23 107 135 / 50%);
-    transform: translateX(3px) translateY(3px);
-    transition-duration: 0.1s;
+  box-shadow: 0 0 0 rgb(23 107 135 / 50%);
+  transform: translateX(3px) translateY(3px);
+  transition-duration: .1s;
 }
 
 form#coordinates {
-    margin-top: 20px;
-    width: 420px;
-    padding: 20px;
-    background-color: #64CCC5;
-    border-radius: 15px;
-    box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+  margin-top: 20px;
+  width: 420px;
+  padding: 20px;
+  background-color: #64CCC5;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
 }
 
 form#coordinates > div {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 form#coordinates > select {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 input {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 
 tr > .val {
-    width: 1%;
+  width: 1%;
 }
 
 .table {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 table#res {
-    background: black;
-    border-radius: 15px;
-    width: 100%;
-    padding: 20px;
-    color: white;
-    box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+  background: black;
+  border-radius: 15px;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
 }
 
 #table {
-    margin-top: 20px;
-    color: #0b243e;
-    font-weight: bolder;
-    background-color: #64CCC5;
-    border-radius: 15px;
-    box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
-    padding: 10px;
-    width: 100%;
+  margin-top: 20px;
+  color: #0b243e;
+  font-weight: bolder;
+  background-color: #64CCC5;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0 rgb(23 107 135 / 50%);
+  padding: 10px;
+  width: 100%;
 }
 
 
 #table tr:nth-child(even) {
-    background-color: white;
+  background-color: white;
 }
 
 .val-gr {
-    background: greenyellow;
+  background: greenyellow;
 }
 
 .val-red {
-    background: orangered;
+  background: orangered;
+}
+
+header > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: rgb(23 107 135 / 30%);
 }

@@ -11,6 +11,9 @@
     </thead>
     <tbody id="table-body">
     <?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     foreach (array_reverse($_SESSION['client']) as $val) { ?>
         <tr>
             <th class="val" scope="col"><?php echo $val[0] ?></th>
@@ -18,8 +21,9 @@
             <th class="val" scope="col"><?php echo $val[2] ?></th>
             <th class="val" scope="col"><?php echo $val[3] ?></th>
             <th class="val" scope="col"><?php echo $val[4] ?></th>
-            <th class="val-<?php echo $val[5] == "HIT" ? "gr" : "red" ?>" scope="col"><?php echo $val[5] ?></th>
+            <th class="val-<?php echo $val[5] === "HIT" ? "gr" : "red" ?>" scope="col"><?php echo $val[5] ?></th>
         </tr>
     <?php } ?>
     </tbody>
 </table>
+
