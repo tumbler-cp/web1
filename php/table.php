@@ -11,9 +11,6 @@
     </thead>
     <tbody id="table-body">
     <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
     foreach (array_reverse($_SESSION['client']) as $val) { ?>
         <tr>
             <th class="val" scope="col"><?php echo $val[0] ?></th>

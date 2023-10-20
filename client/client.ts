@@ -1,5 +1,9 @@
-const xIn = document.getElementById('x-text') as HTMLInputElement;
-const button = document.getElementById('value-submit');
+const xIn: HTMLInputElement = document.getElementById(
+  'x-text'
+) as HTMLInputElement;
+const button: HTMLElement = document.getElementById('value-submit');
+const clearButton: HTMLElement = document.getElementById('clear-button');
+const tableHolder: HTMLElement = document.getElementById('table-holder');
 
 let xValue: number;
 let yValue: number = -4;
@@ -33,25 +37,24 @@ const validate = () => {
 };
 
 const putTable = (table: string) => {
-  const holder = document.getElementById('table-holder');
-  holder.innerHTML = table;
+  tableHolder.innerHTML = table;
+  sessionStorage.setItem('sessionData', table);
 };
 
-const handleData = async (x: number, y: number, r: number) => {
+const createForm = (x: number, y: number, r: number, cl: boolean): FormData => {
   const formData = new FormData();
   formData.append('x', x.toString());
   formData.append('y', y.toString());
   formData.append('r', r.toString());
-
-  const response = await fetch('php/main.php', {
-    method: 'POST',
-    body: formData
-  });
-  return response.text();
+  formData.append('clean', cl ? '1' : '0');
+  return formData;
 };
 
-const reloadSession = async () => {
-  const response = await fetch('php/table.php', { method: 'POST' });
+const handleData = async (form: FormData) => {
+  const response = await fetch('php/main.php', {
+    method: 'POST',
+    body: form
+  });
   return response.text();
 };
 
@@ -61,7 +64,14 @@ button.onclick = () => {
   }
   setValueY();
   setValueR();
-  handleData(xValue, yValue, rValue).then((tableText) => putTable(tableText));
+  handleData(createForm(xValue, yValue, rValue, false)).then((tableText) =>
+    putTable(tableText)
+  );
 };
 
-reloadSession().then((tableText) => putTable(tableText));
+clearButton.onclick = () => {
+  handleData(createForm(0, 0, 0, true)).then((result) => putTable(result));
+  sessionStorage.clear();
+};
+
+putTable(sessionStorage.getItem('sessionData'));

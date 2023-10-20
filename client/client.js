@@ -37,16 +37,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 var xIn = document.getElementById('x-text');
 var button = document.getElementById('value-submit');
+var clearButton = document.getElementById('clear-button');
+var tableHolder = document.getElementById('table-holder');
 var xValue;
 var yValue = -4;
 var rValue = 1.5;
 var setValueY = function () {
-    yValue = Number(
-    //(document.getElementById('y-select') as HTMLSelectElement).options[
-    //(document.getElementById('y-select') as HTMLSelectElement).options
-    //.selectedIndex
-    //].value
-    document.getElementById('y-select').value);
+    yValue = Number(document.getElementById('y-select').value);
 };
 var setValueR = function () {
     rValue = Number(document.getElementById('r-range').value);
@@ -66,33 +63,25 @@ var validate = function () {
     return true;
 };
 var putTable = function (table) {
-    var holder = document.getElementById('table-holder');
-    holder.innerHTML = table;
+    tableHolder.innerHTML = table;
+    sessionStorage.setItem('sessionData', table);
 };
-var handleData = function (x, y, r) { return __awaiter(_this, void 0, void 0, function () {
-    var formData, response;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                formData = new FormData();
-                formData.append('x', x.toString());
-                formData.append('y', y.toString());
-                formData.append('r', r.toString());
-                return [4 /*yield*/, fetch('php/main.php', {
-                        method: 'POST',
-                        body: formData
-                    })];
-            case 1:
-                response = _a.sent();
-                return [2 /*return*/, response.text()];
-        }
-    });
-}); };
-var reloadSession = function () { return __awaiter(_this, void 0, void 0, function () {
+var createForm = function (x, y, r, cl) {
+    var formData = new FormData();
+    formData.append('x', x.toString());
+    formData.append('y', y.toString());
+    formData.append('r', r.toString());
+    formData.append('clean', cl ? '1' : '0');
+    return formData;
+};
+var handleData = function (form) { return __awaiter(_this, void 0, void 0, function () {
     var response;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch('php/table.php', { method: 'POST' })];
+            case 0: return [4 /*yield*/, fetch('php/main.php', {
+                    method: 'POST',
+                    body: form,
+                })];
             case 1:
                 response = _a.sent();
                 return [2 /*return*/, response.text()];
@@ -105,6 +94,11 @@ button.onclick = function () {
     }
     setValueY();
     setValueR();
-    handleData(xValue, yValue, rValue).then(function (tableText) { return putTable(tableText); });
+    handleData(createForm(xValue, yValue, rValue, false)).then(function (tableText) { return putTable(tableText); });
 };
-reloadSession().then(function (tableText) { return putTable(tableText); });
+clearButton.onclick = function () {
+    handleData(createForm(0, 0, 0, true))
+        .then(function (result) { return putTable(result); });
+    sessionStorage.clear();
+};
+putTable(sessionStorage.getItem('sessionData'));
