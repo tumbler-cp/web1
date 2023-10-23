@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "format" : "npm run format-ts & npm run format-css",
     "format-ts" : "prettier --config .prettierrc client/*.ts --write",
     "format-css" : "npx stylelint --fix stylesheet/*.css"
   }

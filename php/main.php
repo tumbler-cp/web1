@@ -12,8 +12,9 @@ $r = $_POST['r'];
 $clean = $_POST['clean'];
 
 if ($clean === '1') {
-    $_SESSION['client'] = null;
-    include 'table.php';
+    session_start();
+    session_destroy();
+    echo '';
     return;
 }
 

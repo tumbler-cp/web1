@@ -71,7 +71,7 @@ button.onclick = () => {
 
 clearButton.onclick = () => {
   handleData(createForm(0, 0, 0, true)).then((result) => putTable(result));
-  sessionStorage.clear();
+  sessionStorage.setItem('sessionData', '');
 };
 
 putTable(sessionStorage.getItem('sessionData'));
