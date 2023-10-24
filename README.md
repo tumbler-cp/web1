@@ -17,7 +17,7 @@
 - Отступы элементов ввода должны задаваться в процентах.
 - Страница должна содержать сценарий на языке JavaScript, осуществляющий валидацию значений, вводимых пользователем в поля формы. Любые некорректные значения (например, буквы в координатах точки или отрицательный радиус) должны блокироваться.
 
-**eslintrc**
+**.eslintrc**
 
 ```cjs
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
 };
 ```
 
-**stylelintrc**
+**.stylelintrc**
 
 ```json
 {
@@ -46,5 +46,15 @@ module.exports = {
     "color-no-invalid-hex": true,
     "selector-max-id": 1
   }
+}
+```
+
+**.prettierrc**
+```json
+{
+  "semi": true,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "printWidth": 80
 }
 ```
